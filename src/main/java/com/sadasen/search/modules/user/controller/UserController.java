@@ -1,11 +1,13 @@
 package com.sadasen.search.modules.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sadasen.core.common.GlobalConsts;
 import com.sadasen.core.response.JsonResult;
 import com.sadasen.search.base.BaseController;
 import com.sadasen.search.modules.user.dto.UserDto;
@@ -32,6 +34,19 @@ public class UserController extends BaseController {
 		user.setPassword(userDto.getPassword());
 		user = userService.save(user);
 		return JsonResult.instance(user);
+	}
+	
+	@PostMapping("/login")
+	public JsonResult login(@RequestBody UserDto userDto) {
+		User user = userService.findToLogin(userDto);
+		super.getRequest().getSession().setAttribute(GlobalConsts.LOGIN_USER, user);
+		return JsonResult.instance(user);
+	}
+	
+	@GetMapping("/logout")
+	public JsonResult logout() {
+		super.getRequest().getSession().removeAttribute(GlobalConsts.LOGIN_USER);
+		return JsonResult.instance();
 	}
 	
 }

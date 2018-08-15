@@ -2,6 +2,7 @@ package com.sadasen.search.modules.user.dao;
 
 import org.beetl.sql.core.mapper.BaseMapper;
 
+import com.sadasen.search.modules.user.dto.UserDto;
 import com.sadasen.search.modules.user.entity.User;
 
 /**
@@ -11,5 +12,7 @@ import com.sadasen.search.modules.user.entity.User;
  * @desc
  */
 public interface UserDao extends BaseMapper<User> {
+	
+	public User selectToLogin(UserDto userDto);
 
 }
