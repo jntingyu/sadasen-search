@@ -13,6 +13,7 @@ import com.sadasen.search.base.BaseController;
 import com.sadasen.search.modules.user.dto.UserDto;
 import com.sadasen.search.modules.user.entity.User;
 import com.sadasen.search.modules.user.service.UserService;
+import com.sadasen.util.DateUtil;
 
 /**
  * @date 2018年8月15日
@@ -32,6 +33,7 @@ public class UserController extends BaseController {
 		User user = new User();
 		user.setUserName(userDto.getUserName());
 		user.setPassword(userDto.getPassword());
+		user.setCreateTime(DateUtil.now());
 		user = userService.save(user);
 		return JsonResult.instance(user);
 	}

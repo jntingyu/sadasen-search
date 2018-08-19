@@ -3,6 +3,7 @@ package com.sadasen.search.config;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 import com.zaxxer.hikari.HikariDataSource;
@@ -13,6 +14,7 @@ import com.zaxxer.hikari.HikariDataSource;
  * @addr home
  * @desc
  */
+@Configuration
 public class DataSourceConfig {
 	
 	@Bean(name="dataSource")

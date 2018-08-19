@@ -1,5 +1,6 @@
 package com.sadasen.search.modules.post.service;
 
+import com.sadasen.search.base.BaseService;
 import com.sadasen.search.modules.post.entity.Post;
 
 /**
@@ -8,8 +9,6 @@ import com.sadasen.search.modules.post.entity.Post;
  * @addr home
  * @desc
  */
-public interface PostService {
+public interface PostService extends BaseService<Post> {
 	
-	public Post save(Post post);
-
 }

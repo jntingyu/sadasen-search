@@ -1,5 +1,6 @@
 package com.sadasen.search.modules.user.service;
 
+import com.sadasen.search.base.BaseService;
 import com.sadasen.search.modules.user.dto.UserDto;
 import com.sadasen.search.modules.user.entity.User;
 
@@ -9,9 +10,7 @@ import com.sadasen.search.modules.user.entity.User;
  * @addr home
  * @desc
  */
-public interface UserService {
-	
-	public User save(User user);
+public interface UserService extends BaseService<User> {
 	
 	public User findToLogin(UserDto userDto);
 

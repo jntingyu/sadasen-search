@@ -1,9 +1,8 @@
 package com.sadasen.search.modules.post.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sadasen.search.modules.post.dao.PostDao;
+import com.sadasen.search.base.AbstractBaseService;
 import com.sadasen.search.modules.post.entity.Post;
 import com.sadasen.search.modules.post.service.PostService;
 
@@ -14,15 +13,6 @@ import com.sadasen.search.modules.post.service.PostService;
  * @desc
  */
 @Service
-public class PostServiceImpl implements PostService {
+public class PostServiceImpl extends AbstractBaseService<Post> implements PostService {
 	
-	@Autowired
-	private PostDao postDao;
-
-	@Override
-	public Post save(Post post) {
-		postDao.insertTemplate(post, true);
-		return post;
-	}
-
 }

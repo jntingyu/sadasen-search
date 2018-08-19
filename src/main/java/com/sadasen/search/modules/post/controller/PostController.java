@@ -36,7 +36,7 @@ public class PostController extends BaseController {
 		post.setContent(postDto.getContent());
 		post.setCreateTime(DateUtil.now());
 		post = postService.save(post);
-		return JsonResult.instance();
+		return JsonResult.instance(post);
 	}
 
 }
