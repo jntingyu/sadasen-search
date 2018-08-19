@@ -2,6 +2,7 @@ package com.sadasen.search.modules.post.entity;
 
 import org.beetl.sql.core.annotatoin.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.sadasen.search.base.BaseEntity;
 
 /**
@@ -15,9 +16,14 @@ public class Post extends BaseEntity {
 
 	private static final long serialVersionUID = 4080756678140689827L;
 	
+	public interface Index{};
+	
+	@JsonView(Index.class)
 	private long id;
 	private long userId;
+	@JsonView(Index.class)
 	private String title;
+	@JsonView(Index.class)
 	private String content;
 	
 	public Post() {
